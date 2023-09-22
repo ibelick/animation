@@ -37,6 +37,38 @@ const config: Config = {
         flash: "flash 1s ease-in-out infinite",
         jiggle: "jiggle 0.5s ease-in-out infinite",
         "rubber-band": "rubber-band 1s ease-in-out infinite",
+        "slide-in-left": "slide-in-left 1.5s ease-out infinite",
+        "slide-in-right": "slide-in-right 1.5s ease-out infinite",
+        "slide-out-left": "slide-out-left 1.5s ease-out infinite",
+        "slide-out-right": "slide-out-right 1.5s ease-out infinite",
+        "spin-clockwise": "spin-clockwise 1.5s linear infinite",
+        "spin-anti-clockwise": "spin-anti-clockwise 1.5s linear infinite",
+        "flip-x": "flip-x 1.5s ease-out infinite",
+        "flip-y": "flip-y 1.5s ease-out infinite",
+        blink: "blink 0.5s steps(1, start) infinite",
+        pop: "pop 1.5s ease-out infinite",
+        "expand-horizontally": "expand-horizontally 1.5s ease-out infinite",
+        "contract-horizontally": "contract-horizontally 1.5s ease-out infinite",
+        "expand-vertically": "expand-vertically 1.5s ease-out infinite",
+        "contract-vertically": "contract-vertically 1.5s ease-out infinite",
+        "fade-in-up": "fade-in-up 1.5s ease-out infinite",
+        "fade-in-down": "fade-in-down 1.5s ease-out infinite",
+        "fade-in-left": "fade-in-left 1.5s ease-out infinite",
+        "fade-in-right": "fade-in-right 1.5s ease-out infinite",
+        "fade-out-up": "fade-out-up 1.5s ease-out infinite",
+        "fade-out-down": "fade-out-down 1.5s ease-out infinite",
+        "fade-out-left": "fade-out-left 1.5s ease-out infinite",
+        "fade-out-right": "fade-out-right 1.5s ease-out infinite",
+        sway: "sway 1.5s ease-out infinite",
+        "flip-in-x": "flip-in-x 1.5s ease-out infinite",
+        "flip-in-y": "flip-in-y 1.5s ease-out infinite",
+        "flip-out-x": "flip-out-x 1.5s ease-out infinite",
+        "flip-out-y": "flip-out-y 1.5s ease-out infinite",
+        "rotate-in": "rotate-in 1.5s ease-out infinite",
+        "rotate-out": "rotate-out 1.5s ease-out infinite",
+        "slide-rotate-in": "slide-rotate-in 1.5s ease-out infinite",
+        "slide-rotate-out": "slide-rotate-out 1.5s ease-out infinite",
+        heartbeat: "heartbeat 1.5s ease-out infinite",
       },
       keyframes: {
         "fade-in": {
@@ -180,6 +212,141 @@ const config: Config = {
           "50%": { transform: "scale(1.15)" },
           "65%": { transform: "scale(0.95)" },
           "75%": { transform: "scale(1.05)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "slide-in-left": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "slide-out-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "slide-out-right": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "spin-clockwise": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "spin-anti-clockwise": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" },
+        },
+        "flip-x": {
+          "0%": { transform: "scaleX(1)" },
+          "50%": { transform: "scaleX(-1)" },
+          "100%": { transform: "scaleX(1)" },
+        },
+        "flip-y": {
+          "0%": { transform: "scaleY(1)" },
+          "50%": { transform: "scaleY(-1)" },
+          "100%": { transform: "scaleY(1)" },
+        },
+        blink: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        pop: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "expand-horizontally": {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
+        "contract-horizontally": {
+          "0%": { transform: "scaleX(1)" },
+          "100%": { transform: "scaleX(0)" },
+        },
+        "expand-vertically": {
+          "0%": { transform: "scaleY(0)" },
+          "100%": { transform: "scaleY(1)" },
+        },
+        "contract-vertically": {
+          "0%": { transform: "scaleY(1)" },
+          "100%": { transform: "scaleY(0)" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(10%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in-down": {
+          "0%": { opacity: "0", transform: "translateY(-10%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in-left": {
+          "0%": { opacity: "0", transform: "translateX(10%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "fade-in-right": {
+          "0%": { opacity: "0", transform: "translateX(-10%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "fade-out-up": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(10%)" },
+        },
+        "fade-out-down": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-10%)" },
+        },
+        "fade-out-left": {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": { opacity: "0", transform: "translateX(10%)" },
+        },
+        "fade-out-right": {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": { opacity: "0", transform: "translateX(-10%)" },
+        },
+        sway: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(15deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+        "flip-in-x": {
+          "0%": { opacity: "0", transform: "rotateX(90deg)" },
+          "100%": { opacity: "1", transform: "rotateX(0deg)" },
+        },
+        "flip-in-y": {
+          "0%": { opacity: "0", transform: "rotateY(90deg)" },
+          "100%": { opacity: "1", transform: "rotateY(0deg)" },
+        },
+        "flip-out-x": {
+          "0%": { opacity: "1", transform: "rotateX(0deg)" },
+          "100%": { opacity: "0", transform: "rotateX(90deg)" },
+        },
+        "flip-out-y": {
+          "0%": { opacity: "1", transform: "rotateY(0deg)" },
+          "100%": { opacity: "0", transform: "rotateY(90deg)" },
+        },
+        "rotate-in": {
+          "0%": { opacity: "0", transform: "rotate(-90deg)" },
+          "100%": { opacity: "1", transform: "rotate(0deg)" },
+        },
+        "rotate-out": {
+          "0%": { opacity: "1", transform: "rotate(0deg)" },
+          "100%": { opacity: "0", transform: "rotate(90deg)" },
+        },
+        "slide-rotate-in": {
+          "0%": { opacity: "0", transform: "translateX(-100%) rotate(-90deg)" },
+          "100%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
+        },
+        "slide-rotate-out": {
+          "0%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
+          "100%": { opacity: "0", transform: "translateX(100%) rotate(90deg)" },
+        },
+        heartbeat: {
+          "0%": { transform: "scale(1)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1)" },
+          "75%": { transform: "scale(0.9)" },
           "100%": { transform: "scale(1)" },
         },
       },
