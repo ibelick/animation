@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   FadeIn,
   FadeOut,
@@ -144,19 +146,29 @@ const animations = [
   { component: RubberBand, category: "Stretching", name: "Rubber Band" },
 ];
 
+type Type = "div" | "text";
+
 const ListAnimation = () => {
+  const [type, setType] = useState<Type>("div");
+
   return (
-    <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
-      {animations.map((animation, index) => {
-        return (
-          <div key={index} className="mb-4 flex items-center flex-col">
-            <div className="">
-              <animation.component />
+    <div>
+      <div>
+        <div onClick={() => setType("div")}>div</div>
+        <div onClick={() => setType("text")}>text</div>
+      </div>
+      <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
+        {animations.map((animation, index) => {
+          return (
+            <div key={index} className="mb-4 flex items-center flex-col">
+              <div className="">
+                <animation.component type={type} />
+              </div>
+              <span className="inline-flex mt-2">{animation.name}</span>
             </div>
-            <span className="inline-flex mt-2">{animation.name}</span>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
