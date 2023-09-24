@@ -8,534 +8,200 @@ type Type = "div" | "text";
 
 type AnimationProps = {
   type: Type;
+  children?: React.ReactNode;
 };
 
 const ContentAnimation: React.FC<AnimationProps> = ({ type }) => {
-  if (type === "text") {
-    return <div className={animTextCn}>Hello World</div>;
-  }
-
-  if (type === "div") {
-    return <div className={animDivCn} />;
-  }
-
-  return null;
+  const className = type === "text" ? animTextCn : animDivCn;
+  return (
+    <div className={className}>{type === "text" ? "Hello World" : null}</div>
+  );
 };
 
-const ContainerAnimation = ({
-  children,
-  type,
-}: {
-  children: React.ReactNode;
-  type: Type;
-}) => {
+const ContainerAnimation: React.FC<AnimationProps> = ({ type, children }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {!isHovered ? <ContentAnimation type={type} /> : children}
+      {isHovered ? children : <ContentAnimation type={type} />}
     </div>
   );
 };
 
-// @note: animate class doesn't work, so we use one component per animation
-
-export const FadeIn: React.FC<AnimationProps> = ({ type }) => {
-  if (type === "text") {
-    return (
-      <ContainerAnimation type={type}>
-        <div className={`${animTextCn} animate-fade-in`}>Hello World</div>
-      </ContainerAnimation>
-    );
-  }
-
-  return (
+const withAnimation = (
+  WrappedComponent: React.FC<AnimationProps>,
+  animationClass: string
+) => {
+  const WithAnimationComponent: React.FC<AnimationProps> = ({ type }) => (
     <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-in`} />
+      <div
+        className={`${
+          type === "text" ? animTextCn : animDivCn
+        } ${animationClass}`}
+      >
+        {type === "text" ? "Hello World" : null}
+      </div>
     </ContainerAnimation>
   );
+
+  WithAnimationComponent.displayName = `WithAnimation(${getDisplayName(
+    WrappedComponent
+  )})`;
+
+  return WithAnimationComponent;
 };
 
-export const FadeOut: React.FC<AnimationProps> = ({ type }) => {
-  if (type === "text") {
-    return (
-      <ContainerAnimation type={type}>
-        <div className={`${animTextCn} animate-fade-out`}>Hello World</div>
-      </ContainerAnimation>
-    );
-  }
+function getDisplayName(WrappedComponent: React.ComponentType<any>): string {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
+}
 
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-out`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeInUp: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-in-up`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeInDown: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-in-down`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeInLeft: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-in-left`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeInRight: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-in-right`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeOutUp: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-out-up`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeOutDown: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-out-down`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeOutLeft: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-out-left`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FadeOutRight: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-fade-out-right`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideInTop: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-in-top`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideInBottom: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-in-bottom`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideInLeft: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-in-left`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideInRight: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-in-right`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideOutTop: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-out-top`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideOutBottom: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-out-bottom`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideOutLeft: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-out-left`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideOutRight: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-out-right`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideRotateIn: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-rotate-in`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SlideRotateOut: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-slide-rotate-out`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ZoomIn: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-zoom-in`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ZoomOut: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-zoom-out`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Rotate90: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rotate-90`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Rotate180: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rotate-180`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Rotate360: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rotate-360`} />
-    </ContainerAnimation>
-  );
-};
-
-export const RotateIn: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rotate-in`} />
-    </ContainerAnimation>
-  );
-};
-
-export const RotateOut: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rotate-out`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SpinClockwise: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-spin-clockwise`} />
-    </ContainerAnimation>
-  );
-};
-
-export const SpinAntiClockwise: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-spin-anti-clockwise`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipHorizontal: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-horizontal`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipVertical: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-vertical`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipX: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-x`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipY: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-y`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipInX: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-in-x`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipInY: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-in-y`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipOutX: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-out-x`} />
-    </ContainerAnimation>
-  );
-};
-
-export const FlipOutY: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flip-out-y`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Bounce: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-bounce`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Swing: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-swing`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Wobble: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-wobble`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Pulse: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-pulse`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Shake: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-shake`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Tada: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-tada`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Jump: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-jump`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Hang: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-hang`} />
-    </ContainerAnimation>
-  );
-};
-
-export const RollIn: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-roll-in`} />
-    </ContainerAnimation>
-  );
-};
-
-export const RollOut: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-roll-out`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Float: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-float`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Sink: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-sink`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Sway: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-sway`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Flash: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-flash`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Jiggle: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-jiggle`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Blink: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-blink`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Pop: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-pop`} />
-    </ContainerAnimation>
-  );
-};
-
-export const Heartbeat: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-heartbeat`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ExpandHorizontally: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-expand-horizontally`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ContractHorizontally: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-contract-horizontally`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ExpandVertically: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-expand-vertically`} />
-    </ContainerAnimation>
-  );
-};
-
-export const ContractVertically: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-contract-vertically`} />
-    </ContainerAnimation>
-  );
-};
-
-export const RubberBand: React.FC<AnimationProps> = ({ type }) => {
-  return (
-    <ContainerAnimation type={type}>
-      <div className={`${animDivCn} animate-rubber-band`} />
-    </ContainerAnimation>
-  );
-};
+export const FadeIn = withAnimation(ContainerAnimation, "animate-fade-in");
+export const FadeOut = withAnimation(ContainerAnimation, "animate-fade-out");
+export const FadeInUp = withAnimation(ContainerAnimation, "animate-fade-in-up");
+export const FadeInDown = withAnimation(
+  ContainerAnimation,
+  "animate-fade-in-down"
+);
+export const FadeInLeft = withAnimation(
+  ContainerAnimation,
+  "animate-fade-in-left"
+);
+export const FadeInRight = withAnimation(
+  ContainerAnimation,
+  "animate-fade-in-right"
+);
+export const FadeOutUp = withAnimation(
+  ContainerAnimation,
+  "animate-fade-out-up"
+);
+export const FadeOutDown = withAnimation(
+  ContainerAnimation,
+  "animate-fade-out-down"
+);
+export const FadeOutLeft = withAnimation(
+  ContainerAnimation,
+  "animate-fade-out-left"
+);
+export const FadeOutRight = withAnimation(
+  ContainerAnimation,
+  "animate-fade-out-right"
+);
+export const SlideInTop = withAnimation(
+  ContainerAnimation,
+  "animate-slide-in-top"
+);
+export const SlideInBottom = withAnimation(
+  ContainerAnimation,
+  "animate-slide-in-bottom"
+);
+export const SlideInLeft = withAnimation(
+  ContainerAnimation,
+  "animate-slide-in-left"
+);
+export const SlideInRight = withAnimation(
+  ContainerAnimation,
+  "animate-slide-in-right"
+);
+export const SlideOutTop = withAnimation(
+  ContainerAnimation,
+  "animate-slide-out-top"
+);
+export const SlideOutBottom = withAnimation(
+  ContainerAnimation,
+  "animate-slide-out-bottom"
+);
+export const SlideOutLeft = withAnimation(
+  ContainerAnimation,
+  "animate-slide-out-left"
+);
+export const SlideOutRight = withAnimation(
+  ContainerAnimation,
+  "animate-slide-out-right"
+);
+export const SlideRotateIn = withAnimation(
+  ContainerAnimation,
+  "animate-slide-rotate-in"
+);
+export const SlideRotateOut = withAnimation(
+  ContainerAnimation,
+  "animate-slide-rotate-out"
+);
+export const ZoomIn = withAnimation(ContainerAnimation, "animate-zoom-in");
+export const ZoomOut = withAnimation(ContainerAnimation, "animate-zoom-out");
+export const Rotate90 = withAnimation(ContainerAnimation, "animate-rotate-90");
+export const Rotate180 = withAnimation(
+  ContainerAnimation,
+  "animate-rotate-180"
+);
+export const Rotate360 = withAnimation(
+  ContainerAnimation,
+  "animate-rotate-360"
+);
+export const RotateIn = withAnimation(ContainerAnimation, "animate-rotate-in");
+export const RotateOut = withAnimation(
+  ContainerAnimation,
+  "animate-rotate-out"
+);
+export const SpinClockwise = withAnimation(
+  ContainerAnimation,
+  "animate-spin-clockwise"
+);
+export const SpinAntiClockwise = withAnimation(
+  ContainerAnimation,
+  "animate-spin-anti-clockwise"
+);
+export const FlipHorizontal = withAnimation(
+  ContainerAnimation,
+  "animate-flip-horizontal"
+);
+export const FlipVertical = withAnimation(
+  ContainerAnimation,
+  "animate-flip-vertical"
+);
+export const FlipX = withAnimation(ContainerAnimation, "animate-flip-x");
+export const FlipY = withAnimation(ContainerAnimation, "animate-flip-y");
+export const FlipInX = withAnimation(ContainerAnimation, "animate-flip-in-x");
+export const FlipInY = withAnimation(ContainerAnimation, "animate-flip-in-y");
+export const FlipOutX = withAnimation(ContainerAnimation, "animate-flip-out-x");
+export const FlipOutY = withAnimation(ContainerAnimation, "animate-flip-out-y");
+export const Bounce = withAnimation(ContainerAnimation, "animate-bounce");
+export const Swing = withAnimation(ContainerAnimation, "animate-swing");
+export const Wobble = withAnimation(ContainerAnimation, "animate-wobble");
+export const Pulse = withAnimation(ContainerAnimation, "animate-pulse");
+export const Shake = withAnimation(ContainerAnimation, "animate-shake");
+export const Tada = withAnimation(ContainerAnimation, "animate-tada");
+export const Jump = withAnimation(ContainerAnimation, "animate-jump");
+export const Hang = withAnimation(ContainerAnimation, "animate-hang");
+export const RollIn = withAnimation(ContainerAnimation, "animate-roll-in");
+export const RollOut = withAnimation(ContainerAnimation, "animate-roll-out");
+export const Float = withAnimation(ContainerAnimation, "animate-float");
+export const Sink = withAnimation(ContainerAnimation, "animate-sink");
+export const Sway = withAnimation(ContainerAnimation, "animate-sway");
+export const Flash = withAnimation(ContainerAnimation, "animate-flash");
+export const Jiggle = withAnimation(ContainerAnimation, "animate-jiggle");
+export const Blink = withAnimation(ContainerAnimation, "animate-blink");
+export const Pop = withAnimation(ContainerAnimation, "animate-pop");
+export const Heartbeat = withAnimation(ContainerAnimation, "animate-heartbeat");
+export const ExpandHorizontally = withAnimation(
+  ContainerAnimation,
+  "animate-expand-horizontally"
+);
+export const ContractHorizontally = withAnimation(
+  ContainerAnimation,
+  "animate-contract-horizontally"
+);
+export const ExpandVertically = withAnimation(
+  ContainerAnimation,
+  "animate-expand-vertically"
+);
+export const ContractVertically = withAnimation(
+  ContainerAnimation,
+  "animate-contract-vertically"
+);
+export const RubberBand = withAnimation(
+  ContainerAnimation,
+  "animate-rubber-band"
+);
