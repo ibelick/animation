@@ -322,4 +322,4 @@ export const animations = [
     name: "Rubber Band",
     slug: "rubber-band",
   },
-];
+] as const;
