@@ -33,7 +33,7 @@ const ContainerAnimation: React.FC<AnimationProps> = ({ type, children }) => {
 
 const withAnimation = (
   WrappedComponent: React.FC<AnimationProps>,
-  animationClass: string
+  animationClass: string,
 ) => {
   const WithAnimationComponent: React.FC<AnimationProps> = ({ type }) => (
     <ContainerAnimation type={type}>
@@ -48,7 +48,7 @@ const withAnimation = (
   );
 
   WithAnimationComponent.displayName = `WithAnimation(${getDisplayName(
-    WrappedComponent
+    WrappedComponent,
   )})`;
 
   return WithAnimationComponent;
@@ -63,103 +63,103 @@ export const FadeOut = withAnimation(ContainerAnimation, "animate-fade-out");
 export const FadeInUp = withAnimation(ContainerAnimation, "animate-fade-in-up");
 export const FadeInDown = withAnimation(
   ContainerAnimation,
-  "animate-fade-in-down"
+  "animate-fade-in-down",
 );
 export const FadeInLeft = withAnimation(
   ContainerAnimation,
-  "animate-fade-in-left"
+  "animate-fade-in-left",
 );
 export const FadeInRight = withAnimation(
   ContainerAnimation,
-  "animate-fade-in-right"
+  "animate-fade-in-right",
 );
 export const FadeOutUp = withAnimation(
   ContainerAnimation,
-  "animate-fade-out-up"
+  "animate-fade-out-up",
 );
 export const FadeOutDown = withAnimation(
   ContainerAnimation,
-  "animate-fade-out-down"
+  "animate-fade-out-down",
 );
 export const FadeOutLeft = withAnimation(
   ContainerAnimation,
-  "animate-fade-out-left"
+  "animate-fade-out-left",
 );
 export const FadeOutRight = withAnimation(
   ContainerAnimation,
-  "animate-fade-out-right"
+  "animate-fade-out-right",
 );
 export const SlideInTop = withAnimation(
   ContainerAnimation,
-  "animate-slide-in-top"
+  "animate-slide-in-top",
 );
 export const SlideInBottom = withAnimation(
   ContainerAnimation,
-  "animate-slide-in-bottom"
+  "animate-slide-in-bottom",
 );
 export const SlideInLeft = withAnimation(
   ContainerAnimation,
-  "animate-slide-in-left"
+  "animate-slide-in-left",
 );
 export const SlideInRight = withAnimation(
   ContainerAnimation,
-  "animate-slide-in-right"
+  "animate-slide-in-right",
 );
 export const SlideOutTop = withAnimation(
   ContainerAnimation,
-  "animate-slide-out-top"
+  "animate-slide-out-top",
 );
 export const SlideOutBottom = withAnimation(
   ContainerAnimation,
-  "animate-slide-out-bottom"
+  "animate-slide-out-bottom",
 );
 export const SlideOutLeft = withAnimation(
   ContainerAnimation,
-  "animate-slide-out-left"
+  "animate-slide-out-left",
 );
 export const SlideOutRight = withAnimation(
   ContainerAnimation,
-  "animate-slide-out-right"
+  "animate-slide-out-right",
 );
 export const SlideRotateIn = withAnimation(
   ContainerAnimation,
-  "animate-slide-rotate-in"
+  "animate-slide-rotate-in",
 );
 export const SlideRotateOut = withAnimation(
   ContainerAnimation,
-  "animate-slide-rotate-out"
+  "animate-slide-rotate-out",
 );
 export const ZoomIn = withAnimation(ContainerAnimation, "animate-zoom-in");
 export const ZoomOut = withAnimation(ContainerAnimation, "animate-zoom-out");
 export const Rotate90 = withAnimation(ContainerAnimation, "animate-rotate-90");
 export const Rotate180 = withAnimation(
   ContainerAnimation,
-  "animate-rotate-180"
+  "animate-rotate-180",
 );
 export const Rotate360 = withAnimation(
   ContainerAnimation,
-  "animate-rotate-360"
+  "animate-rotate-360",
 );
 export const RotateIn = withAnimation(ContainerAnimation, "animate-rotate-in");
 export const RotateOut = withAnimation(
   ContainerAnimation,
-  "animate-rotate-out"
+  "animate-rotate-out",
 );
 export const SpinClockwise = withAnimation(
   ContainerAnimation,
-  "animate-spin-clockwise"
+  "animate-spin-clockwise",
 );
 export const SpinAntiClockwise = withAnimation(
   ContainerAnimation,
-  "animate-spin-anti-clockwise"
+  "animate-spin-anti-clockwise",
 );
 export const FlipHorizontal = withAnimation(
   ContainerAnimation,
-  "animate-flip-horizontal"
+  "animate-flip-horizontal",
 );
 export const FlipVertical = withAnimation(
   ContainerAnimation,
-  "animate-flip-vertical"
+  "animate-flip-vertical",
 );
 export const FlipX = withAnimation(ContainerAnimation, "animate-flip-x");
 export const FlipY = withAnimation(ContainerAnimation, "animate-flip-y");
@@ -187,21 +187,21 @@ export const Pop = withAnimation(ContainerAnimation, "animate-pop");
 export const Heartbeat = withAnimation(ContainerAnimation, "animate-heartbeat");
 export const ExpandHorizontally = withAnimation(
   ContainerAnimation,
-  "animate-expand-horizontally"
+  "animate-expand-horizontally",
 );
 export const ContractHorizontally = withAnimation(
   ContainerAnimation,
-  "animate-contract-horizontally"
+  "animate-contract-horizontally",
 );
 export const ExpandVertically = withAnimation(
   ContainerAnimation,
-  "animate-expand-vertically"
+  "animate-expand-vertically",
 );
 export const ContractVertically = withAnimation(
   ContainerAnimation,
-  "animate-contract-vertically"
+  "animate-contract-vertically",
 );
 export const RubberBand = withAnimation(
   ContainerAnimation,
-  "animate-rubber-band"
+  "animate-rubber-band",
 );

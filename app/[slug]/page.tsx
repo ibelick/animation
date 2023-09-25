@@ -5,7 +5,7 @@ import CodeBlock from "@/components/app/code-block";
 
 const EffectPage = async ({ params }: { params: { slug: string } }) => {
   const animation = animations.find(
-    (animation) => animation.slug === params.slug
+    (animation) => animation.slug === params.slug,
   );
 
   if (!animation || !animation.slug) {
