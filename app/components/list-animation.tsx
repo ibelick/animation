@@ -11,11 +11,11 @@ const ListAnimation = () => {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <div onClick={() => setType("div")}>div</div>
         <div onClick={() => setType("text")}>text</div>
-      </div>
-      <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
+      </div> */}
+      <div className="grid grid-cols-1 gap-12 pb-6 md:grid-cols-2 lg:grid-cols-4">
         {animations.map((animation, index) => {
           return (
             <div className="flex flex-col" key={index}>

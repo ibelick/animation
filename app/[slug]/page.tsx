@@ -37,14 +37,15 @@ const EffectPage = async ({ params }: { params: { slug: string } }) => {
   const twCode = JSON.stringify(code, null, 2);
 
   return (
-    <div>
+    <div className="pt-10">
+      <span className="text-md mb-1 inline-flex font-medium text-neutral-900 dark:text-neutral-50">
+        {animation.name}
+      </span>
       <Playground>
         <animation.component type="div" />
       </Playground>
-      <div>
-        <div className="mt-8">
-          <CodeBlock code={twCode} lang="json" fileName="tailwind.config.ts" />
-        </div>
+      <div className="mt-8">
+        <CodeBlock code={twCode} lang="json" fileName="tailwind.config.ts" />
       </div>
     </div>
   );

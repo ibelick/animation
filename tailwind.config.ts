@@ -45,7 +45,7 @@ const config: Config = {
         "spin-anti-clockwise": "spin-anti-clockwise 1.5s linear infinite",
         "flip-x": "flip-x 1.5s ease-out infinite",
         "flip-y": "flip-y 1.5s ease-out infinite",
-        blink: "blink 0.5s steps(1, start) infinite",
+        blink: "blink 0.5s infinite",
         pop: "pop 1.5s ease-out infinite",
         "expand-horizontally": "expand-horizontally 1.5s ease-out infinite",
         "contract-horizontally": "contract-horizontally 1.5s ease-out infinite",
@@ -80,20 +80,20 @@ const config: Config = {
           "100%": { opacity: "0" },
         },
         "slide-in-top": {
-          "0%": { transform: "translateY(-100%)" },
+          "0%": { transform: "translateY(-25%)" },
           "100%": { transform: "translateY(0)" },
         },
         "slide-in-bottom": {
-          "0%": { transform: "translateY(100%)" },
+          "0%": { transform: "translateY(25%)" },
           "100%": { transform: "translateY(0)" },
         },
         "slide-out-top": {
           "0%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(-25%)" },
         },
         "slide-out-bottom": {
           "0%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(25%)" },
         },
         "zoom-in": {
           "0%": { opacity: "0", transform: "scale(.5)" },
@@ -125,12 +125,12 @@ const config: Config = {
         },
         bounce: {
           "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "25%": { transform: "translateY(-10px)" },
           "100%": { transform: "translateY(0)" },
         },
         swing: {
           "0%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(15deg)" },
+          "25%": { transform: "rotate(15deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
         wobble: {
@@ -138,13 +138,13 @@ const config: Config = {
           "15%": { transform: "translateX(-25%)" },
           "30%": { transform: "translateX(20%)" },
           "45%": { transform: "translateX(-15%)" },
-          "60%": { transform: "translateX(10%)" },
+          "60%": { transform: "translateX(25%)" },
           "75%": { transform: "translateX(-5%)" },
           "100%": { transform: "translateX(0)" },
         },
         pulse: {
           "0%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.1)" },
+          "25%": { transform: "scale(1.1)" },
           "100%": { transform: "scale(1)" },
         },
         shake: {
@@ -160,7 +160,7 @@ const config: Config = {
           "20%": { transform: "scale(0.9) rotate(-3deg)" },
           "30%": { transform: "scale(1.1) rotate(3deg)" },
           "40%": { transform: "scale(1.1) rotate(-3deg)" },
-          "50%": { transform: "scale(1.1) rotate(3deg)" },
+          "25%": { transform: "scale(1.1) rotate(3deg)" },
           "60%": { transform: "scale(1.1) rotate(-3deg)" },
           "70%": { transform: "scale(1.1) rotate(3deg)" },
           "80%": { transform: "scale(1.1) rotate(-3deg)" },
@@ -169,66 +169,66 @@ const config: Config = {
         },
         jump: {
           "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-25%)" },
+          "25%": { transform: "translateY(-25%)" },
           "100%": { transform: "translateY(0)" },
         },
         hang: {
           "0%": { transform: "translateY(-25%)" },
-          "50%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(0)" },
           "100%": { transform: "translateY(-25%)" },
         },
         "roll-in": {
-          "0%": { transform: "translateX(-100%) rotate(-120deg)" },
+          "0%": { transform: "translateX(-25%) rotate(-120deg)" },
           "100%": { transform: "translateX(0) rotate(0)" },
         },
         "roll-out": {
           "0%": { transform: "translateX(0) rotate(0)" },
-          "100%": { transform: "translateX(100%) rotate(120deg)" },
+          "100%": { transform: "translateX(25%) rotate(120deg)" },
         },
         float: {
           "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "25%": { transform: "translateY(-10px)" },
           "100%": { transform: "translateY(0)" },
         },
         sink: {
           "0%": { transform: "translateY(-10px)" },
-          "50%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(0)" },
           "100%": { transform: "translateY(-10px)" },
         },
         flash: {
           "0%": { opacity: "1" },
-          "50%": { opacity: "0" },
+          "25%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
         jiggle: {
           "0%": { transform: "rotate(-3deg)" },
-          "50%": { transform: "rotate(3deg)" },
+          "25%": { transform: "rotate(3deg)" },
           "100%": { transform: "rotate(-3deg)" },
         },
         "rubber-band": {
           "0%": { transform: "scale(1)" },
           "30%": { transform: "scale(1.25)" },
           "40%": { transform: "scale(0.75)" },
-          "50%": { transform: "scale(1.15)" },
+          "25%": { transform: "scale(1.15)" },
           "65%": { transform: "scale(0.95)" },
           "75%": { transform: "scale(1.05)" },
           "100%": { transform: "scale(1)" },
         },
         "slide-in-left": {
-          "0%": { transform: "translateX(-100%)" },
+          "0%": { transform: "translateX(-25%)" },
           "100%": { transform: "translateX(0)" },
         },
         "slide-in-right": {
-          "0%": { transform: "translateX(100%)" },
+          "0%": { transform: "translateX(25%)" },
           "100%": { transform: "translateX(0)" },
         },
         "slide-out-left": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-25%)" },
         },
         "slide-out-right": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(25%)" },
         },
         "spin-clockwise": {
           "0%": { transform: "rotate(0deg)" },
@@ -240,12 +240,12 @@ const config: Config = {
         },
         "flip-x": {
           "0%": { transform: "scaleX(1)" },
-          "50%": { transform: "scaleX(-1)" },
+          "25%": { transform: "scaleX(-1)" },
           "100%": { transform: "scaleX(1)" },
         },
         "flip-y": {
           "0%": { transform: "scaleY(1)" },
-          "50%": { transform: "scaleY(-1)" },
+          "25%": { transform: "scaleY(-1)" },
           "100%": { transform: "scaleY(1)" },
         },
         blink: {
@@ -254,7 +254,7 @@ const config: Config = {
         },
         pop: {
           "0%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.1)" },
+          "25%": { transform: "scale(1.1)" },
           "100%": { transform: "scale(1)" },
         },
         "expand-horizontally": {
@@ -274,40 +274,40 @@ const config: Config = {
           "100%": { transform: "scaleY(0)" },
         },
         "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(10%)" },
+          "0%": { opacity: "0", transform: "translateY(25%)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-down": {
-          "0%": { opacity: "0", transform: "translateY(-10%)" },
+          "0%": { opacity: "0", transform: "translateY(-25%)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-left": {
-          "0%": { opacity: "0", transform: "translateX(10%)" },
+          "0%": { opacity: "0", transform: "translateX(25%)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "fade-in-right": {
-          "0%": { opacity: "0", transform: "translateX(-10%)" },
+          "0%": { opacity: "0", transform: "translateX(-25%)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "fade-out-up": {
           "0%": { opacity: "1", transform: "translateY(0)" },
-          "100%": { opacity: "0", transform: "translateY(10%)" },
+          "100%": { opacity: "0", transform: "translateY(25%)" },
         },
         "fade-out-down": {
           "0%": { opacity: "1", transform: "translateY(0)" },
-          "100%": { opacity: "0", transform: "translateY(-10%)" },
+          "100%": { opacity: "0", transform: "translateY(-25%)" },
         },
         "fade-out-left": {
           "0%": { opacity: "1", transform: "translateX(0)" },
-          "100%": { opacity: "0", transform: "translateX(10%)" },
+          "100%": { opacity: "0", transform: "translateX(25%)" },
         },
         "fade-out-right": {
           "0%": { opacity: "1", transform: "translateX(0)" },
-          "100%": { opacity: "0", transform: "translateX(-10%)" },
+          "100%": { opacity: "0", transform: "translateX(-25%)" },
         },
         sway: {
           "0%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(15deg)" },
+          "25%": { transform: "rotate(15deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
         "flip-in-x": {
@@ -335,12 +335,12 @@ const config: Config = {
           "100%": { opacity: "0", transform: "rotate(90deg)" },
         },
         "slide-rotate-in": {
-          "0%": { opacity: "0", transform: "translateX(-100%) rotate(-90deg)" },
+          "0%": { opacity: "0", transform: "translateX(-25%) rotate(-90deg)" },
           "100%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
         },
         "slide-rotate-out": {
           "0%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
-          "100%": { opacity: "0", transform: "translateX(100%) rotate(90deg)" },
+          "100%": { opacity: "0", transform: "translateX(25%) rotate(90deg)" },
         },
         heartbeat: {
           "0%": { transform: "scale(1)" },

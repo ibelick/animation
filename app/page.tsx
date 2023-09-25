@@ -31,7 +31,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden px-4 pb-20 pt-52 md:px-10">
+      <div className="overflow-hidden px-4 pb-20 pt-32 md:px-10">
         <ListAnimation />
       </div>
     </>
