@@ -19,7 +19,7 @@ const ListAnimation = () => {
         {animations.map((animation, index) => {
           return (
             <div className="flex flex-col" key={index}>
-              <div className="flex flex-col items-center overflow-hidden rounded-xl border border-neutral-300 p-4">
+              <div className="flex flex-col items-center overflow-hidden rounded-xl border border-neutral-200 p-4">
                 <animation.component type={type} />
               </div>
               <Link
@@ -29,7 +29,7 @@ const ListAnimation = () => {
                 <span className="font-base mt-2 inline-flex justify-center">
                   {animation.name}
                 </span>
-                <ArrowRightIcon className="h-4 w-4 text-neutral-800 transition-colors hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400" />
+                <ArrowRightIcon className="h-4 w-4 text-neutral-800 transition-colors hover:text-neutral-600" />
               </Link>
             </div>
           );

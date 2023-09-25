@@ -38,7 +38,7 @@ const EffectPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="pt-10">
-      <span className="text-md mb-1 inline-flex font-medium text-neutral-900 dark:text-neutral-50">
+      <span className="text-md mb-1 inline-flex font-medium text-neutral-900">
         {animation.name}
       </span>
       <Playground>

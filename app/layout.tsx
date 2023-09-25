@@ -1,10 +1,10 @@
 import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const interTight = Inter_Tight({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative mx-auto h-screen w-full max-w-7xl px-6 md:px-8 lg:px-12">
-      <header className="flex items-center justify-between py-8">
+      <header className="flex animate-fade-in items-center justify-between py-8">
         <Link href="/">
           <span>animation.ibelick</span>
         </Link>
@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             rel="noopener noreferrer"
             className="inline-flex"
           >
-            <TwitterLogoIcon className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400" />
+            <TwitterLogoIcon className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600" />
           </a>
           <a
             href="https://github.com/ibelick/animation"
@@ -33,20 +33,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             rel="noopener noreferrer"
             className="inline-flex"
           >
-            <GitHubLogoIcon className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400" />
+            <GitHubLogoIcon className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600" />
           </a>
         </nav>
       </header>
       <main>{children}</main>
       <footer>
         <div className="flex items-center justify-center py-8">
-          <span className="text-sm text-neutral-800 dark:text-neutral-200">
+          <span className="text-sm text-neutral-800">
             Made by
             <a
               href="https://twitter.com/Ibelick"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 text-neutral-950 dark:text-neutral-100"
+              className="ml-1 rounded-full bg-neutral-100 px-2 py-1 text-neutral-950"
             >
               @Ibelick
             </a>
@@ -64,7 +64,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={interTight.className}>
         <Layout>{children}</Layout>
       </body>
     </html>

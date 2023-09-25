@@ -5,19 +5,37 @@ import ListAnimation from "./components/list-animation";
 export default function Home() {
   return (
     <>
-      <div className="pt-8">
+      <div className="relative pb-12 pt-8">
+        <div className="absolute left-0 top-0 -z-10 h-full w-full">
+          <div className="relative h-full w-full bg-white">
+            <div className="-z-1 left-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
+          </div>
+        </div>
+        <div className="mb-8 flex w-full justify-center">
+          <span className="relative inline-flex animate-fade-in-up cursor-pointer items-center overflow-hidden whitespace-nowrap rounded-full bg-gradient-to-t from-[rgba(215,215,215,0.6)] to-[rgba(255,255,255,1)] px-6 py-2  text-base font-medium text-neutral-600 [animation-fill-mode:both]">
+            <a
+              href="https://twitter.com/Ibelick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Announcing
+              <span className="ml-1 inline-flex">✨</span>
+            </a>{" "}
+          </span>
+        </div>
         <div className="relative mx-auto flex max-w-2xl flex-col items-center">
-          <h2 className="text-center text-3xl font-medium text-gray-900 dark:text-gray-50 sm:text-6xl">
-            Collection of Tailwind CSS{" "}
-            <span className="animate-text-gradient inline-flex bg-gradient-to-b from-neutral-900 via-slate-500 to-neutral-500 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-400 dark:to-neutral-400">
-              animations
-            </span>
+          <h2 className="inline-block animate-fade-in-up text-center text-xl font-medium text-gray-900 [animation-delay:500ms] [animation-fill-mode:both]">
+            Tailwind CSS{" "}
+            <span className="animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text  text-transparent">
+              animation
+            </span>{" "}
+            gallery
           </h2>
-          <p className="mt-6 text-center text-lg leading-6 text-gray-600 dark:text-gray-200">
-            Ready-to-use, simply copy and paste into your next project. All
-            snippets crafted with Tailwind CSS.
+          <p className="mt-6 animate-fade-in-up text-center text-lg leading-6 text-gray-600 [animation-fill-mode:both] [animation-delay:800ms]">
+            A curated collection of animations crafted exclusively with Tailwind
+            CSS. Ready to integrate with a simple copy-paste.
           </p>
-          <div className="mt-10 flex gap-4">
+          <div className="mt-10 flex animate-fade-in-up gap-4 [animation-fill-mode:both] [animation-delay:1100ms]">
             <a
               href="https://github.com/ibelick/animation"
               target="_blank"
@@ -31,7 +49,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden px-4 pb-20 pt-32 md:px-10">
+      <div className="animate-fade-in overflow-hidden px-4 pb-20 pt-20 [animation-fill-mode:both] [animation-delay:0ms] md:px-10">
         <ListAnimation />
       </div>
     </>
