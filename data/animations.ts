@@ -59,7 +59,7 @@ import {
   ExpandVertically,
   ContractVertically,
   RubberBand,
-} from "../components/ui/animations";
+} from "@/components/app/animations";
 
 export const animations = [
   { component: FadeIn, category: "Fading", name: "Fade In", slug: "fade-in" },
