@@ -14,7 +14,7 @@ export default function Home() {
         <div className='mb-8 flex w-full justify-center'>
           <span className='relative inline-flex animate-fade-in-up cursor-pointer items-center overflow-hidden whitespace-nowrap rounded-full bg-gradient-to-t from-[rgba(215,215,215,0.6)] to-[rgba(255,255,255,1)] px-6 py-2  text-base font-medium text-neutral-600 [animation-fill-mode:both]'>
             <a
-              href='https://twitter.com/Ibelick'
+              href='https://twitter.com/Ibelick/status/1706611088123363394'
               target='_blank'
               rel='noopener noreferrer'
             >

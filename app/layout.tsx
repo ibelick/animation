@@ -2,6 +2,7 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import './globals.css';
 import { Inter_Tight } from 'next/font/google';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const interTight = Inter_Tight({ subsets: ['latin'] });
 
@@ -62,8 +63,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isDev = process.env.NODE_ENV === 'development';
+
   return (
     <html lang='en'>
+      {!isDev ? (
+        <Script
+          async
+          src='https://analytics.umami.is/script.js'
+          data-website-id='0768af12-de21-46d7-a57a-9c3849b1e524'
+        />
+      ) : null}
       <body className={interTight.className}>
         <Layout>{children}</Layout>
       </body>
