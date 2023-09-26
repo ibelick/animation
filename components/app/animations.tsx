@@ -149,9 +149,9 @@ export const SpinClockwise = withAnimation(
   ContainerAnimation,
   'animate-spin-clockwise',
 );
-export const SpinAntiClockwise = withAnimation(
+export const SpinCounterClockwise = withAnimation(
   ContainerAnimation,
-  'animate-spin-anti-clockwise',
+  'animate-spin-counter-clockwise',
 );
 export const FlipHorizontal = withAnimation(
   ContainerAnimation,

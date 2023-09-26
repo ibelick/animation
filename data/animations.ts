@@ -27,7 +27,7 @@ import {
   RotateIn,
   RotateOut,
   SpinClockwise,
-  SpinAntiClockwise,
+  SpinCounterClockwise,
   FlipHorizontal,
   FlipVertical,
   FlipX,
@@ -221,10 +221,10 @@ export const animations = [
     slug: 'spin-clockwise',
   },
   {
-    component: SpinAntiClockwise,
+    component: SpinCounterClockwise,
     category: 'Spinning',
-    name: 'Spin Anti-Clockwise',
-    slug: 'spin-anti-clockwise',
+    name: 'Spin Counter-Clockwise',
+    slug: 'spin-counter-clockwise',
   },
   {
     component: FlipHorizontal,
