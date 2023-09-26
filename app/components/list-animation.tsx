@@ -26,7 +26,7 @@ const ListAnimation = () => {
                 href={`/${animation.slug}`}
                 className="flex items-center justify-between"
               >
-                <span className="font-base mt-2 inline-flex justify-center">
+                <span className="font-base mt-2 inline-flex justify-center text-neutral-800">
                   {animation.name}
                 </span>
                 <ArrowRightIcon className="h-4 w-4 text-neutral-800 transition-colors hover:text-neutral-600" />
