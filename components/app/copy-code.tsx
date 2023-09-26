@@ -1,6 +1,6 @@
-"use client";
-import { CopyIcon, CheckIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+'use client';
+import { CopyIcon, CheckIcon } from '@radix-ui/react-icons';
+import { useState } from 'react';
 
 type CopyCode = {
   code: string;
@@ -20,13 +20,13 @@ const CopyCode: React.FC<CopyCode> = ({ code }) => {
 
   return (
     <div
-      className="cursor-pointer rounded-md p-2 transition hover:bg-neutral-800"
+      className='cursor-pointer rounded-md p-2 transition hover:bg-neutral-800'
       onClick={onCopy}
     >
       {hasCheckIcon ? (
-        <CheckIcon className="h-4 w-4 text-white" />
+        <CheckIcon className='h-4 w-4 text-white' />
       ) : (
-        <CopyIcon className="h-4 w-4 text-white" />
+        <CopyIcon className='h-4 w-4 text-white' />
       )}
     </div>
   );

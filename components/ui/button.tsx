@@ -1,19 +1,19 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonCva = cva(
-  "inline-flex transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 font-medium h-12 px-6 rounded-md items-center justify-center",
+  'inline-flex transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 font-medium h-12 px-6 rounded-md items-center justify-center',
   {
     variants: {
       variant: {
-        primary: "bg-slate-900 hover:bg-slate-700 text-white",
-        secondary: "bg-slate-400 text-black hover:bg-slate-300",
-        outline: "border border-slate-400 text-black hover:bg-slate-200",
+        primary: 'bg-slate-900 hover:bg-slate-700 text-white',
+        secondary: 'bg-slate-400 text-black hover:bg-slate-300',
+        outline: 'border border-slate-400 text-black hover:bg-slate-200',
       },
     },
     defaultVariants: {
-      variant: "primary",
+      variant: 'primary',
     },
-  }
+  },
 );
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
