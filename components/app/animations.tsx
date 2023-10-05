@@ -205,3 +205,21 @@ export const RubberBand = withAnimation(
   ContainerAnimation,
   'animate-rubber-band',
 );
+export const Blurred = withAnimation(ContainerAnimation, 'animate-blurred');
+export const Vibrate = withAnimation(ContainerAnimation, 'animate-vibrate');
+export const Wave = withAnimation(ContainerAnimation, 'animate-wave');
+export const Skew = withAnimation(ContainerAnimation, 'animate-skew');
+export const BounceUp = withAnimation(ContainerAnimation, 'animate-bounce-up');
+export const BounceRight = withAnimation(
+  ContainerAnimation,
+  'animate-bounce-right',
+);
+export const Tilt = withAnimation(ContainerAnimation, 'animate-tilt');
+export const Squeeze = withAnimation(ContainerAnimation, 'animate-squeeze');
+export const SlideUpFade = withAnimation(
+  ContainerAnimation,
+  'animate-slide-up-fade',
+);
+export const BounceIn = withAnimation(ContainerAnimation, 'animate-bounce-in');
+export const SwingIn = withAnimation(ContainerAnimation, 'animate-swing-in');
+export const PulseIn = withAnimation(ContainerAnimation, 'animate-pulse-in');
